@@ -19,4 +19,6 @@
     <string name="user_name">User Name</string>
     <string name="view_Detail">View Detail</string>
     <string name="user_verification_message">kindly enter username</string>
+    <string name="no_network_connectivity">no network connectivity</string>
+
 </resources>

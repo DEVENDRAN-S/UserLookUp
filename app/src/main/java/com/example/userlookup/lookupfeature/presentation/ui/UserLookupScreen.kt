@@ -43,6 +43,7 @@ import com.example.userlookup.ui.common.SnackBar
 import com.example.userlookup.ui.common.showSnackBar
 import com.example.userlookup.ui.theme.primaryBaseColor
 import com.example.userlookup.ui.theme.primaryButtomColor
+import com.example.userlookup.util.NetworkUtil
 import com.example.userlookup.util.Routes
 
 @OptIn(ExperimentalMaterial3Api::class, ExperimentalComposeUiApi::class)
@@ -53,7 +54,8 @@ fun UserLookUpScreen(lookUpViewModel: UserLookUpViewModel,navController:NavContr
     val coroutineScope = rememberCoroutineScope()
     val snackState = remember { SnackbarHostState() }
     var text by remember { mutableStateOf("") }
-    val viewDetailsMessage = stringResource(id = R.string.user_name)
+    val viewDetailsMessage = stringResource(id = R.string.user_verification_message)
+    val networkErrorMessage = stringResource(id = R.string.no_network_connectivity)
     val keyboardController = LocalSoftwareKeyboardController.current
 
     val uiState = lookUpViewModel.userlookUpUIState
@@ -107,7 +109,15 @@ fun UserLookUpScreen(lookUpViewModel: UserLookUpViewModel,navController:NavContr
                         ),
                         keyboardActions = KeyboardActions(
                             onDone = {
-                                lookUpViewModel.fetchUser(text)
+                                if(text.isEmpty()) {
+                                    showSnackBar(coroutineScope,snackState,viewDetailsMessage)
+                                }
+                                else if(NetworkUtil.isNetworkAvailable().not()) {
+                                    showSnackBar(coroutineScope,snackState,networkErrorMessage)
+                                }
+                                else {
+                                    lookUpViewModel.fetchUser(text)
+                                }
                                 keyboardController?.hide()
                             }
                         ),
@@ -121,6 +131,9 @@ fun UserLookUpScreen(lookUpViewModel: UserLookUpViewModel,navController:NavContr
                         Button(onClick = {
                             if(text.isEmpty()) {
                                 showSnackBar(coroutineScope,snackState,viewDetailsMessage)
+                            }
+                            else if(NetworkUtil.isNetworkAvailable().not()) {
+                                showSnackBar(coroutineScope,snackState,networkErrorMessage)
                             }
                             else {
                                 lookUpViewModel.fetchUser(text)
@@ -140,4 +153,3 @@ fun UserLookUpScreen(lookUpViewModel: UserLookUpViewModel,navController:NavContr
 
     SnackBar(snackState)
 }
-

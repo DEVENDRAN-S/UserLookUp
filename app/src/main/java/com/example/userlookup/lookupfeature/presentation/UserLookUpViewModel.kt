@@ -29,7 +29,7 @@ class UserLookUpViewModel:ViewModel() {
     var userlookUpUIState by mutableStateOf<UserLookupUIState>(UserLookupUIState.Initial)
     var postlookUpUIState by mutableStateOf<PostLookupUIState>(PostLookupUIState.Initial)
 
-    var userData by mutableStateOf<User?>(User(userid=1, name="Leanne Graham", userName="Bret", email="Sincere@april.biz", address= Address(street="Kulas Light", suite="Apt. 556", city="Gwenborough", zipcode="92998-3874", geo= Geo(lat="-37.3159", lng="81.1496")), phone="1-770-736-8031 x56442", company= Company(companyName="Romaguera-Crona", catchPhrase="Multi-layered client-server neural-net", bs="harness real-time e-markets")))
+    var userData by mutableStateOf<User?>(null)
 
     private  val getUserdataEngine  = GetUsersFactory.createInstance()
     private  val getUserPostsEngine  = GetUserPostsFactory.createInstance()
