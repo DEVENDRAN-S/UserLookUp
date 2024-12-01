@@ -26,6 +26,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
+import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalSoftwareKeyboardController
@@ -44,7 +45,7 @@ import com.example.userlookup.ui.theme.primaryBaseColor
 import com.example.userlookup.ui.theme.primaryButtomColor
 import com.example.userlookup.util.Routes
 
-@OptIn(ExperimentalMaterial3Api::class)
+@OptIn(ExperimentalMaterial3Api::class, ExperimentalComposeUiApi::class)
 @Composable
 fun UserLookUpScreen(lookUpViewModel: UserLookUpViewModel,navController:NavController)
 {

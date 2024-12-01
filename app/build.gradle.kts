@@ -52,7 +52,6 @@ android {
 
 dependencies {
 
-   // implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.8.7")
 
     implementation("androidx.core:core-ktx:1.9.0")
     implementation("androidx.appcompat:appcompat:1.6.1")
@@ -61,7 +60,6 @@ dependencies {
     androidTestImplementation("androidx.test.ext:junit:1.2.1")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.6.1")
     implementation("androidx.compose.runtime:runtime:1.6.8")
-    implementation("org.jetbrains.compose.components:components-resources:1.6.10")
     implementation("com.squareup.sqldelight:coroutines-extensions:1.4.3")
     implementation("com.squareup.sqldelight:runtime:1.4.3")
     implementation("com.squareup.sqldelight:android-driver:1.4.3")
@@ -79,11 +77,7 @@ dependencies {
     implementation("io.ktor:ktor-client-okhttp:2.2.1")
     debugImplementation("androidx.compose.ui:ui-tooling")
     debugImplementation("androidx.compose.ui:ui-test-manifest")
-//    testImplementation("junit:junit:4.13.2")
-//    androidTestImplementation("androidx.test.ext:junit:1.2.1")
-//    androidTestImplementation("androidx.test.espresso:espresso-core:3.6.1")
-//    androidTestImplementation(platform("androidx.compose:compose-bom:2023.03.00"))
-//    androidTestImplementation("androidx.compose.ui:ui-test-junit4")
+
 }
 
 sqldelight{
