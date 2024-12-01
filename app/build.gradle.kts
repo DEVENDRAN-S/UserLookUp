@@ -77,7 +77,9 @@ dependencies {
     implementation("io.ktor:ktor-client-okhttp:2.2.1")
     debugImplementation("androidx.compose.ui:ui-tooling")
     debugImplementation("androidx.compose.ui:ui-test-manifest")
-
+    androidTestImplementation(kotlin("test-junit"))
+    testImplementation("com.google.truth:truth:1.4.4")
+    androidTestImplementation("com.google.truth:truth:1.4.4")
 }
 
 sqldelight{

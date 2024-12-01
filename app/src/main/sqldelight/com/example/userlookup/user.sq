@@ -37,6 +37,9 @@ SELECT * FROM DbPost WHERE userId = :userId;
 GetUserDetailByName:
 SELECT * FROM DbUser WHERE userName = :userName;
 
+GetAllUser:
+SELECT * FROM DbUser;
+
 checkUserExist:
 SELECT EXISTS (SELECT 1 FROM DbUser WHERE userName = :userName);
 deleteAllUsers:
