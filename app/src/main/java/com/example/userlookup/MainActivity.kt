@@ -9,26 +9,27 @@ import androidx.compose.runtime.SideEffect
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.example.userlookup.lookupfeature.presentation.UserLookUpViewModel
 import com.example.userlookup.lookupfeature.presentation.ui.UserDetailBaseScreen
 import com.example.userlookup.lookupfeature.presentation.ui.UserLookUpScreen
-import com.example.userlookup.lookupfeature.presentation.ui.UserPageScreen
 import com.example.userlookup.util.Routes
 import com.example.userlookup.ui.theme.UserLookupTheme
 import com.example.userlookup.ui.theme.statusBarColor
 import com.google.accompanist.systemuicontroller.rememberSystemUiController
 
 class MainActivity : ComponentActivity() {
+    private lateinit var lookUpViewModel :UserLookUpViewModel
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        lookUpViewModel = ViewModelProvider(this)[UserLookUpViewModel::class.java]
         setContent {
 
             UserLookupTheme {
                 val navController = rememberNavController()
-                val lookUpViewModel = remember { UserLookUpViewModel() }
                 val systemUiController = rememberSystemUiController()
                 NavHost(navController = navController, startDestination = Routes.LOOKUP_SCREEN, builder ={
                     composable(Routes.LOOKUP_SCREEN){
