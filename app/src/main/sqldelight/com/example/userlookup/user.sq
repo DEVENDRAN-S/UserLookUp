@@ -1,0 +1,46 @@
+
+CREATE TABLE DbUser (
+ userId INTEGER AS Long NOT NULL PRIMARY KEY,
+ name TEXT NOT NULL,
+ userName TEXT NOT NULL,
+ email TEXT NOT NULL,
+ phone TEXT NOT NULL,
+ street TEXT NOT NULL,
+ suite TEXT NOT NULL,
+ city TEXT NOT NULL,
+ zipcode TEXT NOT NULL,
+ latitude TEXT NOT NULL,
+ longitude TEXT NOT NULL,
+ companyName TEXT NOT NULL,
+ catchPhrase TEXT NOT NULL,
+ bs TEXT NOT NULL);
+
+
+CREATE TABLE DbPost (
+ postId INTEGER AS Long NOT NULL,
+ userId INTEGER NOT NULL,
+ title TEXT NOT NULL,
+ body TEXT NOT NULL,
+ PRIMARY KEY (postId) ON CONFLICT REPLACE,
+ FOREIGN KEY (userId) REFERENCES DbUser(userId) ON DELETE CASCADE);
+
+
+insertorReplaceUser:
+INSERT OR REPLACE INTO DbUser VALUES ?;
+
+insertorReplacePost:
+INSERT OR REPLACE INTO DbPost VALUES ?;
+
+GetPostByUser:
+SELECT * FROM DbPost WHERE userId = :userId;
+
+GetUserDetailByName:
+SELECT * FROM DbUser WHERE userName = :userName;
+
+checkUserExist:
+SELECT EXISTS (SELECT 1 FROM DbUser WHERE userName = :userName);
+deleteAllUsers:
+DELETE FROM DbUser;
+
+deleteAllPostByUser:
+DELETE FROM DbPost WHERE userId = :userId;

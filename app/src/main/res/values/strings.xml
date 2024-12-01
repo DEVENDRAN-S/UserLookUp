@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">User Lookup</string>
+    <string name="name">Name</string>
+    <string name="email">Email</string>
+    <string name="address">Address</string>
+    <string name="phone">Phone</string>
+    <string name="company_information">Company Information</string>
+    <string name="personal_information">Personal Information</string>
+    <string name="user_information">User Information</string>
+
+    <string name="city">city</string>
+    <string name="zipcode">zipcode</string>
+
+    <string name="company_name">Company name</string>
+    <string name="catchPhrase">Catch phrase</string>
+    <string name="bs">Business</string>
+    <string name="user_lookup">USER LOOKUP</string>
+    <string name="user_not_found">User Not Found</string>
+    <string name="user_name">User Name</string>
+    <string name="view_Detail">View Detail</string>
+    <string name="user_verification_message">kindly enter username</string>
+</resources>
