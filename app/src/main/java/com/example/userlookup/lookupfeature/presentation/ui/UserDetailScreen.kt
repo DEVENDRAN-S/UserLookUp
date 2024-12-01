@@ -28,40 +28,40 @@ import com.example.userlookup.ui.theme.primaryTextColor
 
 @Composable
 fun UserDetailScreen(lookUpViewModel: UserLookUpViewModel) {
-    val user = lookUpViewModel.userData!!
-
-    Surface(
-        modifier = Modifier.fillMaxSize(),
-        color = primaryBaseColor
-    ) {
-
+    lookUpViewModel.userData?.let{user ->
         Surface(
-            color = Color.White,
-            modifier = Modifier.padding(16.dp),
-            shadowElevation = 8.dp,
-            shape = RoundedCornerShape(4.dp)
+            modifier = Modifier.fillMaxSize(),
+            color = primaryBaseColor
         ) {
-            Column(
-                modifier = Modifier
-                    .padding(24.dp)
-                    .fillMaxWidth(),
+
+            Surface(
+                color = Color.White,
+                modifier = Modifier.padding(16.dp),
+                shadowElevation = 8.dp,
+                shape = RoundedCornerShape(4.dp)
             ) {
+                Column(
+                    modifier = Modifier
+                        .padding(24.dp)
+                        .fillMaxWidth(),
+                ) {
 
-                Text(text= stringResource(id = R.string.personal_information),color = Color.Black, fontWeight = FontWeight.Bold)
-                Divider(color = primaryTextColor, thickness = 2.dp, modifier = Modifier.padding(vertical = 5.dp))
-                TitleWithContent(R.string.name,user.name)
-                TitleWithContent(R.string.email,user.email)
-                TitleWithContent(R.string.phone,user.phone)
-                TitleWithContent(R.string.name,user.name)
-                TitleWithContent(R.string.address,"${user.address.street},${user.address.suite}\n${user.address.city}" )
-                TitleWithContent(R.string.zipcode,user.address.zipcode)
+                    Text(text= stringResource(id = R.string.personal_information),color = Color.Black, fontWeight = FontWeight.Bold)
+                    Divider(color = primaryTextColor, thickness = 2.dp, modifier = Modifier.padding(vertical = 5.dp))
+                    TitleWithContent(R.string.name,user.name)
+                    TitleWithContent(R.string.email,user.email)
+                    TitleWithContent(R.string.phone,user.phone)
+                    TitleWithContent(R.string.name,user.name)
+                    TitleWithContent(R.string.address,"${user.address.street},${user.address.suite}\n${user.address.city}" )
+                    TitleWithContent(R.string.zipcode,user.address.zipcode)
 
-                Text(text= stringResource(id = R.string.company_information),color = Color.Black, fontWeight = FontWeight.Bold, modifier = Modifier.padding(top=5.dp))
-                Divider(color = primaryTextColor, thickness = 2.dp, modifier = Modifier.padding(vertical = 5.dp))
-                TitleWithContent(R.string.company_name,user.company.companyName)
-                TitleWithContent(R.string.catchPhrase,user.company.catchPhrase)
-                TitleWithContent(R.string.bs,user.company.bs)
+                    Text(text= stringResource(id = R.string.company_information),color = Color.Black, fontWeight = FontWeight.Bold, modifier = Modifier.padding(top=5.dp))
+                    Divider(color = primaryTextColor, thickness = 2.dp, modifier = Modifier.padding(vertical = 5.dp))
+                    TitleWithContent(R.string.company_name,user.company.companyName)
+                    TitleWithContent(R.string.catchPhrase,user.company.catchPhrase)
+                    TitleWithContent(R.string.bs,user.company.bs)
 
+                }
             }
         }
     }

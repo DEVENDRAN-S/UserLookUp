@@ -79,6 +79,7 @@ class UserLookUpViewModel:ViewModel() {
             }
 
             override fun gotData(request: GetUsersRequestParam, data: GetUsersResponseValue) {
+                userData = data.user
                 userlookUpUIState = UserLookupUIState.GotData(data.user)
 
             }
@@ -102,8 +103,8 @@ class UserLookUpViewModel:ViewModel() {
                 request: GetUserPostsRequestParam,
                 data: GetUserPostsResponseValue
             ) {
-                postlookUpUIState = PostLookupUIState.GotData(data.userPostList)
                 userPost.addAll(data.userPostList)
+                postlookUpUIState = PostLookupUIState.GotData(data.userPostList)
             }
         }
     }

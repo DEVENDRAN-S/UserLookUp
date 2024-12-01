@@ -22,6 +22,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import com.example.userlookup.R
+import com.example.userlookup.lookupfeature.model.UserPost
 import com.example.userlookup.lookupfeature.presentation.UserLookUpViewModel
 import com.example.userlookup.lookupfeature.presentation.util.PostLookupUIState
 import com.example.userlookup.ui.common.ShowProgress
@@ -61,21 +62,7 @@ fun UserPageScreen(lookUpViewModel:UserLookUpViewModel) {
         {
 
             items(items = lookUpViewModel.userPost) {
-
-                Surface(
-                    color = primaryBaseColor,
-                    modifier = Modifier.padding(vertical = 4.dp, horizontal = 8.dp),
-                ) {
-                    Column(
-                        modifier = Modifier
-                            .padding(24.dp)
-                            .fillMaxWidth(),
-                    ) {
-                        Text(text=it.title,color = primaryTextColor, fontWeight = FontWeight.Bold)
-                        Divider(color = primaryTextColor, thickness = 2.dp, modifier = Modifier.padding(vertical = 5.dp))
-                        Text(it.body,color = primaryTextColor)
-                    }
-                }
+                PostItem(it)
             }
         }
         if (uiState == PostLookupUIState.NoData) {
@@ -99,4 +86,23 @@ fun UserPageScreen(lookUpViewModel:UserLookUpViewModel) {
         lookUpViewModel.userData?.let { lookUpViewModel.fetchUserPosts(it.userid) }
     }
     SnackBar(snackState)
+}
+
+
+@Composable
+fun PostItem(post: UserPost) {
+    Surface(
+        color = primaryBaseColor,
+        modifier = Modifier.padding(vertical = 4.dp, horizontal = 8.dp),
+    ) {
+        Column(
+            modifier = Modifier
+                .padding(24.dp)
+                .fillMaxWidth(),
+        ) {
+            Text(text = post.title, color = primaryTextColor, fontWeight = FontWeight.Bold)
+            Divider(color = primaryTextColor, thickness = 2.dp, modifier = Modifier.padding(vertical = 5.dp))
+            Text(post.body, color = primaryTextColor)
+        }
+    }
 }

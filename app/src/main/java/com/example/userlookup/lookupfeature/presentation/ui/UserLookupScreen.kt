@@ -72,7 +72,6 @@ fun UserLookUpScreen(lookUpViewModel: UserLookUpViewModel,navController:NavContr
         }
 
         is UserLookupUIState.GotData -> {
-            lookUpViewModel.userData = uiState.data
             navController.navigate(Routes.LOOKUP_DETAIL_SCREEN)
             lookUpViewModel.setUserLookupStateToInitial()
         }
@@ -112,9 +111,6 @@ fun UserLookUpScreen(lookUpViewModel: UserLookUpViewModel,navController:NavContr
                                 if(text.isEmpty()) {
                                     showSnackBar(coroutineScope,snackState,viewDetailsMessage)
                                 }
-                                else if(NetworkUtil.isNetworkAvailable().not()) {
-                                    showSnackBar(coroutineScope,snackState,networkErrorMessage)
-                                }
                                 else {
                                     lookUpViewModel.fetchUser(text)
                                 }
@@ -131,9 +127,6 @@ fun UserLookUpScreen(lookUpViewModel: UserLookUpViewModel,navController:NavContr
                         Button(onClick = {
                             if(text.isEmpty()) {
                                 showSnackBar(coroutineScope,snackState,viewDetailsMessage)
-                            }
-                            else if(NetworkUtil.isNetworkAvailable().not()) {
-                                showSnackBar(coroutineScope,snackState,networkErrorMessage)
                             }
                             else {
                                 lookUpViewModel.fetchUser(text)
