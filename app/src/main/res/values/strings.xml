@@ -20,5 +20,6 @@
     <string name="view_Detail">View Detail</string>
     <string name="user_verification_message">kindly enter username</string>
     <string name="no_network_connectivity">no network connectivity</string>
+    <string name="post_not_found">No posts found</string>
 
 </resources>

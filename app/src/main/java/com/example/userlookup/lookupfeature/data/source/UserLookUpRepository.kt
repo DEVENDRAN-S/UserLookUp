@@ -54,7 +54,6 @@ class UserLookUpRepository(
                     getUserFromLocal(requestValues,getUserDataCallBack)
                 }
 
-                else -> {}
             }
         }
         else
@@ -110,8 +109,6 @@ class UserLookUpRepository(
                     userLookUpLocalDataSource.insertUserPostsListIntoDB(userPostList)
                     getUserPostFromLocal(requestValues,getUserPostCallBack)
                 }
-
-                else -> {}
             }
         }
         else

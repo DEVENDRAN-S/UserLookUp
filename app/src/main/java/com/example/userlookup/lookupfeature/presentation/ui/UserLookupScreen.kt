@@ -55,7 +55,6 @@ fun UserLookUpScreen(lookUpViewModel: UserLookUpViewModel,navController:NavContr
     val snackState = remember { SnackbarHostState() }
     var text by remember { mutableStateOf("") }
     val viewDetailsMessage = stringResource(id = R.string.user_verification_message)
-    val networkErrorMessage = stringResource(id = R.string.no_network_connectivity)
     val keyboardController = LocalSoftwareKeyboardController.current
 
     val uiState = lookUpViewModel.userlookUpUIState

@@ -69,8 +69,8 @@ fun UserDetailScreen(lookUpViewModel: UserLookUpViewModel) {
 
 
 @Composable
-fun TitleWithContent(title:Int, content :String) {
-    val title = stringResource(id = title)
+fun TitleWithContent(titleResource:Int, content :String) {
+    val title = stringResource(id = titleResource)
     Row(
         modifier = Modifier
             .padding(vertical = 10.dp)

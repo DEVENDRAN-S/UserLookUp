@@ -70,7 +70,7 @@ fun UserPageScreen(lookUpViewModel:UserLookUpViewModel) {
                 modifier = Modifier.fillMaxSize(),
                 contentAlignment = Alignment.Center
             ) {
-                Text(text = "No posts found")
+                Text(text = stringResource(id = R.string.post_not_found))
             }
         }
         if (uiState == PostLookupUIState.Loading) {
