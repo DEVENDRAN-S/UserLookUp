@@ -80,6 +80,7 @@ dependencies {
     androidTestImplementation(kotlin("test-junit"))
     testImplementation("com.google.truth:truth:1.4.4")
     androidTestImplementation("com.google.truth:truth:1.4.4")
+    implementation("com.google.accompanist:accompanist-systemuicontroller:0.30.1")
 }
 
 sqldelight{
