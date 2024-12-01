@@ -45,15 +45,3 @@ class BaseApplication : Application() {
 
 }
 
-//fun setBooleanValueIntoPref(key: String,value: Boolean) {
-//    val editor = getSharedPreference().edit()
-//    editor.putBoolean(key, value)
-//    editor.apply()
-//}
-//fun getBooleanValueIntoPref(key: String): Boolean = getSharedPreference().getBoolean(key, false)
-//fun setStringValueIntoPref( key: String,value: String) {
-//    val editor = getSharedPreference().edit()
-//    editor.putString(key, value)
-//    editor.apply()
-//}
-//fun getStringValueFromPref(key: String): String? = getSharedPreference().getString(key, "text")

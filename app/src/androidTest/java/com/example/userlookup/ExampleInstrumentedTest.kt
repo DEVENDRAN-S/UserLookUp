@@ -1,4 +1,4 @@
-package com.zoho.userlookup
+package com.example.userlookup
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4
